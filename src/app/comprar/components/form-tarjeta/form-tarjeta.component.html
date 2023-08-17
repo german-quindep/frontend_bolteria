@@ -1,0 +1,83 @@
+<div class="container mb-4 mt-2">
+  <div class="row">
+    <app-diseno-tarjeta class="col-xl-5" [hability]="hability" />
+    <div class="col-xl-2"></div>
+    <div class="col-xl-5">
+      <h5>Detalles de la tarjeta</h5>
+      <div class="row mt-3">
+        <div class="col-xl-12 mb-2">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control input-control"
+              placeholder="Card number"
+              aria-label="Recipient's username"
+              (click)="onInputDisable()"
+              aria-describedby="basic-addon2"
+            />
+            <span class="input-group-text input-icon" id="basic-addon2"
+              ><i class="fa-solid fa-credit-card text-primary"></i
+            ></span>
+          </div>
+        </div>
+        <div class="col-xl-12 mb-2">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control input-control"
+              placeholder="Full Name"
+              (click)="onInputDisable()"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+            <span class="input-group-text input-icon" id="basic-addon2"
+              ><i class="fa-solid fa-address-card text-primary"></i
+            ></span>
+          </div>
+        </div>
+        <div class="col-xl-4 mb-2">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Mes"
+              (click)="onInputDisable()"
+            />
+          </div>
+        </div>
+        <div class="col-xl-4 mb-2">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Año"
+              (click)="onInputDisable()"
+            />
+          </div>
+        </div>
+        <div class="col-xl-4 mb-2">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control input-control"
+              placeholder="CCV"
+              (click)="onInputClick()"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+            <span class="input-group-text input-icon" id="basic-addon2"
+              ><i class="fa-solid fa-lock text-primary"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 text-center">
+          <button class="btn btn-secondary">Limpiar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<app-navbar [listItem]="listNav"></app-navbar>
+<div class="container">
+  <app-sections-module
+    [listBreadCumb]="listBreadCumb"
+    [nameModule]="'Crud de modulos'"
+    [regresar]="regresar"
+    [classIcon]="'fa-solid fa-laptop-file fa-2xl text-primary text-center mb-4 mt-3'"
+  ></app-sections-module>
+  <div class="row card p-2">
+    <div class="row">
+      <div class="col-xl-6 text-start mt-2">
+        <!-- Button trigger modal -->
+        <p-button
+          (click)="showDialog()"
+          icon="pi pi-external-link"
+          label="Registrar"
+        ></p-button>
+      </div>
+      <div class="col-xl-6 text-end mb-3 mt-2">
+        <p-fileUpload
+          mode="basic"
+          accept="text/csv"
+          [maxFileSize]="1000000"
+          label="Importar"
+          chooseLabel="Importar"
+          name="demo[]"
+          class="mr-2 inline-block"
+          [customUpload]="true"
+          (uploadHandler)="subirCsv($event)"
+          [auto]="true"
+        ></p-fileUpload>
+      </div>
+      <div class="row mt-2">
+        <app-list [visible]="visible" />
+      </div>
+    </div>
+  </div>
+  <p-toast />
+</div>
+<app-footer />

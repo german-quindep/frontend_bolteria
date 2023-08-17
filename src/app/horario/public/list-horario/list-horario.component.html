@@ -1,0 +1,151 @@
+<div class="card mt-2 mb-3">
+  <div class="row">
+    <div class="col-xl-12">
+      <h4 class="text-center mt-3 mb-3">
+        Horarios para el dia de {{ dateHoy | date : "YYYY-MM-dd" }}
+      </h4>
+    </div>
+    <div class="col-xl-4 mb-3 p-4" *ngFor="let items of listHorario">
+      <div class="card" style="width: 28rem">
+        <div class="d-flex justify-content-center align-items-center">
+          <img
+            src="https://www.turismo.gob.ec/wp-content/uploads/2016/10/Catedral-de-Ambato.jpg"
+            class="img-fluid card-img-top mt-3 img-tamano"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ items.destinoLlegada }}</h5>
+          <p class="card-text">
+            La salida del bus es de {{ items.destinoSalida }} hasta
+            {{ items.destinoLlegada }}
+          </p>
+          <p class="card-text">El horario es el siguiente:</p>
+          <ul>
+            <li>
+              Salida:
+              {{ items.horarioSalida | date : "HH:mm:ss" }}
+            </li>
+            <li>
+              Llegada:
+              {{ items.horarioLlegada | date : "HH:mm:ss" }}
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-xl-6 text-start">
+              <p-button
+                (click)="showDialog(items)"
+                label="Ver asientos"
+                icon="pi pi-external-link"
+                iconPos="right"
+              >
+              </p-button>
+            </div>
+            <div class="col-xl-6 text-end">
+              <button
+                pButton
+                (click)="irRuta(items)"
+                pRipple
+                label="Comprar"
+                class="p-button-success"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-dialog
+  header="Información"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 mt-3">
+        <h4>
+          <b>Detalles</b> &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-circle-info"></i>
+        </h4>
+        <div class="row text-start mb-3 mt-3">
+          <div class="col-xl-6">
+            <h6><b>Destino </b><i class="fa-solid fa-plane-departure"></i></h6>
+          </div>
+          <div class="col-xl-6">
+            <h6><b>Llegada </b><i class="fa-solid fa-plane-arrival"></i></h6>
+          </div>
+          <div class="col-xl-6">
+            {{ itemHorario.destinoLlegada }}
+          </div>
+          <div class="col-xl-6">{{ itemHorario.destinoSalida }}</div>
+        </div>
+        <div class="row text-start mb-3 mt-2">
+          <div class="col-xl-6">
+            <h6>
+              <b>Horario Salida </b><i class="fa-solid fa-hourglass-start"></i>
+            </h6>
+          </div>
+          <div class="col-xl-6">
+            <h6>
+              <b>Horario LLegada </b><i class="fa-solid fa-hourglass-end"></i>
+            </h6>
+          </div>
+          <div class="col-xl-6">
+            <p>
+              {{ itemHorario.horarioSalida | date : "yyyy-mm-dd HH:mm:ss" }}
+            </p>
+          </div>
+          <div class="col-xl-6">
+            <p>
+              {{ itemHorario.horarioLlegada | date : "yyyy-mm-dd HH:mm:ss" }}
+            </p>
+          </div>
+        </div>
+        <div class="row text-start mb-3">
+          <div class="col-xl-6">
+            <h6><b>Marca </b> <i class="fa-solid fa-van-shuttle"></i></h6>
+          </div>
+          <p>{{ itemHorario.marcaBus }}</p>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <p-divider layout="vertical"></p-divider>
+      </div>
+      <div class="col-xl-5 mt-3">
+        <h4 class="text-start">
+          <b>Asientos</b>&nbsp;&nbsp;&nbsp;
+          <i class="fa-solid fa-bus-simple"></i>
+        </h4>
+        <div class="row">
+          <div class="col-xl-6 text-center">
+            <img src="../../../../assets/asiento_ocupado.png" />
+            <p>Ocupados</p>
+          </div>
+          <div class="col-xl-6 text-center">
+            <img src="../../../../assets/asiento_disponible.png" />
+            <p>Disponibles</p>
+          </div>
+          <ng-container
+            *ngIf="this.asientosAsignados.asientosDisponibles.length > 0"
+          >
+            <app-diseno-bus
+              class="d-flex justify-content-center"
+              [asientoDispon]="asientosAsignados"
+              [formOrCash]="false"
+            />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="visible = false"
+      label="Aceptar"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

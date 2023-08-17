@@ -1,0 +1,15 @@
+.bg-primary-tarjeta {
+  background: rgb(0, 212, 253);
+  background: linear-gradient(90deg, rgba(0, 212, 253, 1) 0%, rgba(9, 9, 121, 0.9612219887955182) 100%);
+}
+
+.content-box {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5 ease;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}

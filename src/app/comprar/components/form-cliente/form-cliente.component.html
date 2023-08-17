@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-xl-5">
+      <h5>Escoje los asientos</h5>
+      <div class="row">
+        <div class="col-xl-6 text-center">
+          <img src="../../../../assets/asiento_ocupado.png" />
+          <p>Ocupados</p>
+        </div>
+        <div class="col-xl-6 text-center">
+          <img src="../../../../assets/asiento_disponible.png" />
+          <p>Disponibles</p>
+        </div>
+      </div>
+      <app-diseno-bus
+        class="d-flex justify-content-center"
+        [asientoDispon]="asientosAsignados"
+        [formOrCash]="false"
+      />
+    </div>
+    <div class="col-xl-2"></div>
+    <div class="col-xl-5">
+      <h5>Formulario de la factura</h5>
+      <form action="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Nombres Completos"
+          />
+          <label for="floatingInput">Nombres completos</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="example@example.com"
+          />
+          <label for="floatingInput">Correo</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Pancho segura 12"
+          />
+          <label for="floatingInput">Dirección</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="09999999999"
+          />
+          <label for="floatingInput">Teléfono</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="09999999999"
+          />
+          <label for="floatingInput">Cédula o Ruc</label>
+        </div>
+        <div class="row text-center">
+          <div class="col-xl-12">
+            <button class="btn btn-secondary">Limpiar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

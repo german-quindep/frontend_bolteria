@@ -1,0 +1,13 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 55px);
+  grid-gap: 30px;
+}
+
+.row-bus {
+  display: flex;
+}
+
+.col-bus {
+  flex: 1;
+}

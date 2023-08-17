@@ -1,0 +1,53 @@
+<div class="card p-3">
+  <h4 class="text-center mt-2">Listado de modulos</h4>
+  <div class="row d-flex justify-content-end">
+    <div class="col-xl-3 text-end">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control input_search"
+          placeholder="Buscar modulos"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+          #txtSearch
+          (keyup)="onSearchModule(txtSearch.value)"
+        />
+        <span class="input-group-text span-search" id="basic-addon1"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngIf="listSection; else notData">
+      <div class="col-md-4" *ngFor="let items of listSection |search:searchValue">
+        <div class="card" style="width: 20rem">
+          <div
+            class="card-header container bg-white col-md-12 text-center mt-3 mb-3"
+          >
+            <i [class]="items.img"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ items.title }}</h5>
+            <p class="card-text">
+              {{ items.description }}
+            </p>
+          </div>
+          <div class="card-footer text-center bg-white mt-2">
+            <button
+              (click)="irRuta(items.link)"
+              class="btn btn-primary text-center"
+            >
+              Ir
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #notData>
+      <div class="col-md-12 text-center">
+        <h1>No hay información disponible de modulos</h1>
+      </div>
+    </ng-template>
+  </div>
+</div>

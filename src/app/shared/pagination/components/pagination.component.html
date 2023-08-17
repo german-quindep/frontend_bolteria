@@ -1,0 +1,15 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="nextPage()">Siguiente</a>
+    </li>
+    <ng-container *ngFor="let i of itemsData">
+      <li class="page-item">
+        <a class="page-link" (click)="paginate(i)">{{ i }}</a>
+      </li>
+    </ng-container>
+    <li class="page-item">
+      <a class="page-link" (click)="prevPage()">Atras</a>
+    </li>
+  </ul>
+</nav>

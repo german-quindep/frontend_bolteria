@@ -1,0 +1,49 @@
+<ng-container *ngIf="!hability; else reverse">
+  <div
+    class="card bg-primary-tarjeta rounded border-0 p-2"
+    [class]="!hability ? 'content-box' : 'hide'"
+  >
+    <h4 class="mx-2 mt-2 mb-2 text-end text-white">Banco</h4>
+    <div class="row mt-4 mb-3">
+      <div class="col-xl-6">
+        <i class="mx-4 fa-solid fa-microchip fa-xl text-white"></i>
+      </div>
+      <div class="col-xl-6 text-end">
+        <i class="mx-4 fa-solid fa-angles-right fa-xl text-white"></i>
+      </div>
+    </div>
+    <div class="row mt-3 mb-2">
+      <h3 class="mx-4 text-white">1234 1234 1234 ####</h3>
+    </div>
+    <div class="row mt-2 mb-2 text-center text-white">
+      <h6>12/23</h6>
+    </div>
+    <div class="row mt-3">
+      <h5 class="mx-4 text-white">GERMAN KEVIN QUINDE PISCO</h5>
+    </div>
+  </div>
+</ng-container>
+<!-- Reverse tarjeta credit cards -->
+<ng-template #reverse>
+  <div
+    class="card bg-primary-tarjeta rounded border-0 p-2"
+    [class]="hability ? 'content-box' : 'hide'"
+  >
+    <div class="bg-dark mt-3 mb-4">
+      <p class="mb-5"></p>
+    </div>
+    <div class="row mt-4 mb-5">
+      <div class="col-xl-9 mt-3 mb-4">
+        <div class="bg-primary">
+          <p class="text-end text-white fs-2">123</p>
+        </div>
+      </div>
+      <div class="col-xl-3 mt-4">
+        <i
+          class="fa-solid fa-shield fa-2xl text-white"
+          style="font-size: 80px"
+        ></i>
+      </div>
+    </div>
+  </div>
+</ng-template>

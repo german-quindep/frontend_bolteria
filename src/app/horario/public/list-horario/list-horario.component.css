@@ -1,0 +1,13 @@
+.img-tamano {
+  max-width: 400px;
+  max-height: 250px;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header {
+  background: #0d6efd !important;
+  color: white;
+}
+
+:host ::ng-deep .p-dialog-header-close {
+  color: white;
+}

@@ -1,0 +1,100 @@
+<ng-container *ngIf="formOrCash; else cash">
+  <h1 class="text-center">Diseño de los asientos</h1>
+  <div class="grid-container m-auto mt-4">
+    <ng-container
+      *ngFor="let item of formBus.getAsientosTotal.controls; let i = index"
+    >
+      <ng-container *ngIf="i % 2 === 0">
+        <div class="row-bus">
+          <div class="col-bus text-center">
+            <img src="../../../../assets/asiento_disponible.png" />
+            <span class="text-center">{{ item.value }}</span>
+          </div>
+          <div
+            class="col-bus text-center"
+            *ngIf="i + 1 < formBus.getAsientosTotal.controls.length"
+          >
+            <img src="../../../../assets/asiento_disponible.png" />
+            <span class="text-center">{{ item.value + 1 }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-template #cash>
+  <div class="grid-container m-auto mt-4">
+    <ng-container
+      *ngFor="let item of asientoDispon.asientosDisponibles; let i = index"
+    >
+      <ng-container *ngIf="i % 2 === 0">
+        <div class="row-bus">
+          <div class="col-bus text-center">
+            <img
+              [src]="
+                stateBusAsiento(item)
+                  ? '../../../../assets/asiento_ocupado.png'
+                  : '../../../../assets/asiento_disponible.png'
+              "
+            />
+            <span class="text-center">{{ item }}</span>
+          </div>
+          <div
+            class="col-bus text-center"
+            *ngIf="i + 1 < asientoDispon.asientosDisponibles.length"
+          >
+            <img
+              [src]="
+                stateBusAsiento(item + 1)
+                  ? '../../../assets/asiento_ocupado.png'
+                  : '../../../assets/asiento_disponible.png'
+              "
+            />
+            <span class="text-center">{{ item + 1 }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+<!-- 
+
+<ng-template #cash>
+  <h1>Disponibilidad de asientos del bus</h1>
+  <div class="grid-container m-auto mt-4">
+    <ng-container
+      *ngFor="let item of formBus.getAsientosTotal.controls; let i = index"
+    >
+      <ng-container *ngIf="i % 2 === 0">
+        <div class="row-bus">
+          <div class="col-bus text-center">
+            <img
+              [src]="
+                !asientosAsignados.includes(item.value)
+                  ? '../../../../assets/asiento_disponible.png'
+                  : '../../../../assets/asiento_ocupado.png'
+              "
+            />
+            <span class="text-center">{{ item.value }}</span>
+          </div>
+          <div
+            class="col-bus text-center"
+            *ngIf="i + 1 < formBus.getAsientosTotal.controls.length"
+          >
+            <img
+              [src]="
+                !asientosAsignados.includes(item.value)
+                  ? '../../../assets/asiento_disponible.png'
+                  : '../../../assets/asiento_ocupado.png'
+              "
+            />
+            <span class="text-center">{{ item.value + 1 }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+
+
+ -->

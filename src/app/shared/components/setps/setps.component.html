@@ -1,0 +1,27 @@
+<div class="position-relative m-5">
+  <div class="progress" style="height: 1px">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      aria-label="Progress"
+      [style]="styleProgress"
+      aria-valuenow="50"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+  </div>
+  <ng-container *ngFor="let item of itemsMenu">
+    <button
+      type="button"
+      (click)="setStateSteps(item)"
+      [class]="item.classBtn"
+      [ngClass]="item.verify ? 'btn-primary' : 'btn-secondary'"
+      style="width: 2rem; height: 2rem"
+    >
+      {{ item.id }}
+    </button>
+    <p [class]="item.classLbl" style="font-size: 14px">
+      <b> {{ item.label }}</b>
+    </p>
+  </ng-container>
+</div>

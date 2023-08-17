@@ -1,0 +1,29 @@
+<app-navbar />
+<div class="container">
+  <app-sections-module
+    [listBreadCumb]="listBreadcumb"
+    [regresar]="regresar"
+    [nameModule]="'Modulo de compras'"
+    [classIcon]="'fa-solid fa-bus fa-2xl text-center text-primary mb-3'"
+  />
+  <div class="row card mb-3">
+    <div class="card-header bg-white border-0">
+      <app-setps [itemsMenu]="itemMenu" />
+    </div>
+    <div *ngIf="itemMenu[0].verify" class="row mt-4">
+      <app-form-cliente />
+    </div>
+    <div *ngIf="itemMenu[1].verify" class="row mt-4">
+      <app-form-tarjeta />
+    </div>
+    <div *ngIf="itemMenu[2].verify" class="row mt-4">
+      <app-confirmacion />
+    </div>
+    <div class="card-footer text-end bg-white">
+      <button class="btn btn-primary">
+        {{ itemMenu[2].verify ? "Aceptar" : "Continuar" }}
+      </button>
+    </div>
+  </div>
+</div>
+<app-footer />
