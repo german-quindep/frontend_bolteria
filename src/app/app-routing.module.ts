@@ -5,23 +5,23 @@ import { urlFront } from './shared/routes/routeFront';
 const routes: Routes = [
   {
     path: urlFront.index,
-    loadChildren: () =>
-      import('./public/module/index.module').then((m) => m.IndexModule),
+    loadChildren: async () =>
+      (await import('./public/module/index.module')).IndexModule,
   },
   {
     path: urlFront.bus.module,
-    loadChildren: () =>
-      import('./buses/module/bus.module').then((m) => m.BusModule),
+    loadChildren: async () =>
+      (await import('./buses/module/bus.module')).BusModule,
   },
   {
     path: urlFront.horario.module,
-    loadChildren: () =>
-      import('./horario/module/horario.module').then((m) => m.HorarioModule),
+    loadChildren: async () =>
+      (await import('./horario/module/horario.module')).HorarioModule,
   },
   {
     path: urlFront.comprar.module,
-    loadChildren: () =>
-      import('./comprar/module/comprar.module').then((m) => m.ComprarModule),
+    loadChildren: async () =>
+      (await import('./comprar/module/comprar.module')).ComprarModule,
   },
   {
     path: '**',
